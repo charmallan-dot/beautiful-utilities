@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Beautiful Utils</title>
+  <meta name="description" content="Get in touch with Beautiful Utils. We'd love to hear from you! Questions, feedback, or partnership inquiries welcome.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>📬 Contact Us</h1>
+      <p>We'd love to hear from you</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+      <!-- Contact Form -->
+      <div class="glass-card">
+        <h3 style="margin-bottom: 1.5rem;">Send Us a Message</h3>
+        
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" required>
+              <option value="">Select a topic</option>
+              <option value="general">General Inquiry</option>
+              <option value="feedback">Feedback</option>
+              <option value="bug">Report a Bug</option>
+              <option value="feature">Feature Request</option>
+              <option value="partnership">Partnership</option>
+              <option value="support">Premium Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="How can we help you?" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">
+            Send Message
+          </button>
+        </form>
+        
+        <div id="form-success" class="hidden" style="text-align: center; padding: 2rem;">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+          <h4 style="margin-bottom: 0.5rem;">Message Sent!</h4>
+          <p style="color: var(--text-secondary);">Thank you for reaching out. We'll get back to you soon.</p>
+        </div>
+      </div>
+      
+      <!-- Contact Info -->
+      <div>
+        <div class="glass-card">
+          <h3 style="margin-bottom: 1.5rem;">Get in Touch</h3>
+          
+          <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="font-size: 2rem;">📧</div>
+            <div>
+              <h4 style="margin-bottom: 0.3rem;">Email</h4>
+              <p style="color: var(--text-secondary);">hello@beautifulutils.com</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Response within 24-48 hours</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="font-size: 2rem;">💬</div>
+            <div>
+              <h4 style="margin-bottom: 0.3rem;">Live Chat</h4>
+              <p style="color: var(--text-secondary);">Available for Premium users</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Mon-Fri, 9am-6pm EST</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="font-size: 2rem;">📱</div>
+            <div>
+              <h4 style="margin-bottom: 0.3rem;">Social Media</h4>
+              <p style="color: var(--text-secondary);">Follow us for updates</p>
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <a href="#" style="color: var(--accent-color); text-decoration: none; padding: 0.3rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 5px;">Twitter/X</a>
+                <a href="#" style="color: var(--accent-color); text-decoration: none; padding: 0.3rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 5px;">LinkedIn</a>
+                <a href="#" style="color: var(--accent-color); text-decoration: none; padding: 0.3rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 5px;">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card mt-2">
+          <h3 style="margin-bottom: 1rem;">⚡ Quick Links</h3>
+          <ul style="color: var(--text-secondary); line-height: 2;">
+            <li><a href="premium.html" style="color: var(--accent-color); text-decoration: none;">Premium Features</a></li>
+            <li><a href="#" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="#" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></li>
+            <li><a href="#" style="color: var(--accent-color); text-decoration: none;">Refund Policy</a></li>
+            <li><a href="#" style="color: var(--accent-color); text-decoration: none;">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="glass-card mt-2">
+          <h3 style="margin-bottom: 1rem;">🆘 Need Help?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+            Check out our FAQ section for quick answers to common questions.
+          </p>
+          <a href="premium.html#faq" class="btn btn-secondary" style="width: 100%; text-align: center;">View FAQ</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1.5rem; text-align: center;">Our Response Times</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div style="text-align: center; padding: 1rem; background: rgba(0,255,136,0.1); border-radius: 10px; border: 1px solid rgba(0,255,136,0.3);">
+          <div style="font-size: 1.5rem; font-weight: 700; color: #00ff88;">24-48h</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary);">General Inquiries</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(0,217,255,0.1); border-radius: 10px; border: 1px solid rgba(0,217,255,0.3);">
+          <div style="font-size: 1.5rem; font-weight: 700; color: #00d9ff;">12-24h</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary);">Bug Reports</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,215,0,0.1); border-radius: 10px; border: 1px solid rgba(255,215,0,0.3);">
+          <div style="font-size: 1.5rem; font-weight: 700; color: #ffd700;">&lt;12h</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary);">Premium Support</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,170,0,0.1); border-radius: 10px; border: 1px solid rgba(255,170,0,0.3);">
+          <div style="font-size: 1.5rem; font-weight: 700; color: #ffaa00;">2-5 days</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary);">Partnerships</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would integrate with a form backend service
+      // Options: Formspree, EmailJS, Netlify Forms, Getform, etc.
+      
+      console.log('Form submitted:', { name, email, subject, message });
+      
+      // Show success message
+      document.getElementById('contact-form').classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+      
+      // In production, you would send this to your backend
+      // Example with fetch:
+      /*
+      fetch('https://your-backend.com/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Show success
+      })
+      .catch(error => {
+        // Show error
+      });
+      */
+    }
+  </script>
+</body>
+</html>

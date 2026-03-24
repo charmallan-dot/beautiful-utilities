@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise & Sunset Calculator - Beautiful Utils</title>
+  <meta name="description" content="Get accurate sunrise, sunset, and solar noon times for any location. Perfect for photographers, travelers, and outdoor enthusiasts.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>🌅 Sunrise & Sunset Calculator</h1>
+      <p>Accurate sun times for any location on Earth</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="glass-card">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div class="form-group">
+          <label>Find Sun Times For</label>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+            <button class="btn btn-primary" onclick="SunCalculator.getUserLocation()">📍 My Location</button>
+            <button class="btn btn-secondary" onclick="SunCalculator.calculateSunTimes(40.7128, -74.0060, 'New York')">🗽 New York</button>
+            <button class="btn btn-secondary" onclick="SunCalculator.calculateSunTimes(51.5074, -0.1278, 'London')">🏰 London</button>
+            <button class="btn btn-secondary" onclick="SunCalculator.calculateSunTimes(35.6762, 139.6503, 'Tokyo')">🗼 Tokyo</button>
+            <button class="btn btn-secondary" onclick="SunCalculator.calculateSunTimes(48.8566, 2.3522, 'Paris')">🥐 Paris</button>
+            <button class="btn btn-secondary" onclick="SunCalculator.calculateSunTimes(-33.8688, 151.2093, 'Sydney')">🦘 Sydney</button>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin: 1.5rem 0;">
+          <p style="color: var(--text-secondary);">Or enter custom coordinates:</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+            <input type="number" id="custom-lat" placeholder="Latitude" step="0.0001" style="width: 150px;">
+            <input type="number" id="custom-lon" placeholder="Longitude" step="0.0001" style="width: 150px;">
+            <input type="text" id="custom-city" placeholder="City Name" style="width: 150px;">
+            <button class="btn btn-accent" onclick="calculateCustom()">Calculate</button>
+          </div>
+        </div>
+        
+        <div id="sun-times-display" class="result-box">
+          <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+            Click a city button or use your location to see sun times
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">📸 Perfect for Photographers</h3>
+      <p style="color: var(--text-secondary); line-height: 1.8;">
+        Golden hour occurs shortly after sunrise and before sunset, providing the best natural light for photography. 
+        Blue hour happens just before sunrise and after sunset, creating stunning atmospheric conditions.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        <div style="text-align: center; padding: 1rem; background: rgba(255,170,0,0.2); border-radius: 10px; border: 1px solid rgba(255,170,0,0.3);">
+          <div style="font-size: 2rem;">🌅</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Morning Golden Hour</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">~1 hour after sunrise</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(0,100,255,0.2); border-radius: 10px; border: 1px solid rgba(0,100,255,0.3);">
+          <div style="font-size: 2rem;">🌆</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Morning Blue Hour</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">Just before sunrise</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(0,100,255,0.2); border-radius: 10px; border: 1px solid rgba(0,100,255,0.3);">
+          <div style="font-size: 2rem;">🌇</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Evening Blue Hour</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">Just after sunset</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,170,0,0.2); border-radius: 10px; border: 1px solid rgba(255,170,0,0.3);">
+          <div style="font-size: 2rem;">🌄</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Evening Golden Hour</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">~1 hour before sunset</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">💡 Did You Know?</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+        <li>The earliest sunset doesn't occur on the winter solstice due to the equation of time</li>
+        <li>Northern locations have longer summer days and shorter winter days</li>
+        <li>At the poles, the sun can stay above or below the horizon for months</li>
+        <li>Solar noon is when the sun reaches its highest point (not always 12:00 PM)</li>
+        <li>Day length changes most rapidly around the equinoxes</li>
+      </ul>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script>
+    function calculateCustom() {
+      const lat = parseFloat(document.getElementById('custom-lat').value);
+      const lon = parseFloat(document.getElementById('custom-lon').value);
+      const city = document.getElementById('custom-city').value || 'Custom Location';
+      
+      if (isNaN(lat) || isNaN(lon)) {
+        alert('Please enter valid coordinates');
+        return;
+      }
+      
+      SunCalculator.calculateSunTimes(lat, lon, city);
+    }
+  </script>
+</body>
+</html>

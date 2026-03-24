@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon Phase Calculator - Beautiful Utils</title>
+  <meta name="description" content="Discover the current moon phase, illumination percentage, and moon age. Beautiful lunar calendar tool.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>🌙 Moon Phase Calculator</h1>
+      <p>Discover the lunar phase for any date</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="glass-card">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div id="moon-display">
+          <!-- Moon phase will be displayed here -->
+        </div>
+        
+        <div class="form-group mt-2">
+          <label for="moon-date">Check a Different Date</label>
+          <div style="display: flex; gap: 1rem;">
+            <input type="date" id="moon-date" style="flex: 1;">
+            <button class="btn btn-primary" onclick="MoonPhase.calculateForDate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1.5rem; text-align: center;">Moon Phase Guide</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌑</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">New Moon</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">0% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌒</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Waxing Crescent</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">1-49% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌓</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">First Quarter</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">50% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌔</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Waxing Gibbous</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">51-99% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌕</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Full Moon</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">100% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌖</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Waning Gibbous</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">99-51% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌗</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Last Quarter</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">50% illuminated</div>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <div style="font-size: 3rem;">🌘</div>
+          <div style="font-weight: 600; margin-top: 0.5rem;">Waning Crescent</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.3rem;">49-1% illuminated</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">🌙 Fun Moon Facts</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+        <li>The lunar cycle is approximately 29.53 days long</li>
+        <li>A "Blue Moon" is the second full moon in a calendar month</li>
+        <li>The moon affects ocean tides through gravitational pull</li>
+        <li>Full moons have inspired countless myths and legends across cultures</li>
+        <li>The same side of the moon always faces Earth (tidal locking)</li>
+      </ul>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>

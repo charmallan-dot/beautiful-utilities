@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Clock - Beautiful Utils</title>
+  <meta name="description" content="Track time across multiple timezones worldwide with our beautiful world clock. Real-time updates, no signup required.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>🌍 World Clock</h1>
+      <p>Track time across the globe in real-time</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="glass-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.5rem;">Current Times Around the World</h2>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <select id="timezone-select" style="width: auto; padding: 0.5rem 1rem;">
+            <option value="Africa/Cairo">Cairo</option>
+            <option value="America/Anchorage">Anchorage</option>
+            <option value="America/Chicago">Chicago</option>
+            <option value="America/Denver">Denver</option>
+            <option value="America/Los_Angeles">Los Angeles</option>
+            <option value="America/Mexico_City">Mexico City</option>
+            <option value="America/New_York">New York</option>
+            <option value="America/Phoenix">Phoenix</option>
+            <option value="America/Sao_Paulo">São Paulo</option>
+            <option value="America/Toronto">Toronto</option>
+            <option value="America/Vancouver">Vancouver</option>
+            <option value="Asia/Bangkok">Bangkok</option>
+            <option value="Asia/Dubai">Dubai</option>
+            <option value="Asia/Hong_Kong">Hong Kong</option>
+            <option value="Asia/Jakarta">Jakarta</option>
+            <option value="Asia/Jerusalem">Jerusalem</option>
+            <option value="Asia/Kolkata">Mumbai</option>
+            <option value="Asia/Manila">Manila</option>
+            <option value="Asia/Seoul">Seoul</option>
+            <option value="Asia/Shanghai">Shanghai</option>
+            <option value="Asia/Singapore">Singapore</option>
+            <option value="Asia/Taipei">Taipei</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="Atlantic/Reykjavik">Reykjavik</option>
+            <option value="Australia/Melbourne">Melbourne</option>
+            <option value="Australia/Perth">Perth</option>
+            <option value="Australia/Sydney">Sydney</option>
+            <option value="Europe/Amsterdam">Amsterdam</option>
+            <option value="Europe/Athens">Athens</option>
+            <option value="Europe/Berlin">Berlin</option>
+            <option value="Europe/Brussels">Brussels</option>
+            <option value="Europe/Budapest">Budapest</option>
+            <option value="Europe/Copenhagen">Copenhagen</option>
+            <option value="Europe/Dublin">Dublin</option>
+            <option value="Europe/Helsinki">Helsinki</option>
+            <option value="Europe/Istanbul">Istanbul</option>
+            <option value="Europe/Lisbon">Lisbon</option>
+            <option value="Europe/London">London</option>
+            <option value="Europe/Madrid">Madrid</option>
+            <option value="Europe/Moscow">Moscow</option>
+            <option value="Europe/Oslo">Oslo</option>
+            <option value="Europe/Paris">Paris</option>
+            <option value="Europe/Prague">Prague</option>
+            <option value="Europe/Rome">Rome</option>
+            <option value="Europe/Stockholm">Stockholm</option>
+            <option value="Europe/Vienna">Vienna</option>
+            <option value="Europe/Warsaw">Warsaw</option>
+            <option value="Europe/Zurich">Zurich</option>
+            <option value="Pacific/Auckland">Auckland</option>
+            <option value="Pacific/Fiji">Fiji</option>
+            <option value="Pacific/Honolulu">Honolulu</option>
+            <option value="UTC">UTC</option>
+          </select>
+          <button class="btn btn-primary" onclick="WorldClock.addTimezone()" style="padding: 0.5rem 1rem;">Add</button>
+        </div>
+      </div>
+      
+      <div id="clocks-container" style="display: grid; gap: 1rem;">
+        <!-- Clocks will be populated by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">💡 Tips</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+        <li>Click "Add" to include more timezones from the dropdown</li>
+        <li>All times update automatically every second</li>
+        <li>Times automatically adjust for Daylight Saving Time</li>
+        <li>Perfect for scheduling international meetings or calls</li>
+      </ul>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>

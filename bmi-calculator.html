@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator - Beautiful Utils</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI) instantly. Free, accurate BMI calculator with metric and imperial units.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>⚖️ BMI Calculator</h1>
+      <p>Calculate your Body Mass Index instantly</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="glass-card">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div class="form-group">
+          <label>Units</label>
+          <select id="bmi-unit" onchange="BMICalculator.toggleUnits()" style="width: 100%;">
+            <option value="metric">Metric (kg / cm)</option>
+            <option value="imperial">Imperial (lbs / ft & in)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <div style="display: flex; gap: 1rem;">
+            <input type="number" id="weight" placeholder="Enter weight" style="flex: 1;">
+            <span id="weight-unit" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center;">kg</span>
+          </div>
+        </div>
+        
+        <div id="metric-inputs">
+          <div class="form-group">
+            <label for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" placeholder="Enter height in cm">
+          </div>
+        </div>
+        
+        <div id="imperial-inputs" class="hidden">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="height-ft">Height (ft)</label>
+              <input type="number" id="height-ft" placeholder="Feet">
+            </div>
+            <div class="form-group">
+              <label for="height-in">Height (in)</label>
+              <input type="number" id="height-in" placeholder="Inches">
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" onclick="BMICalculator.calculate()" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem;">
+          Calculate BMI
+        </button>
+        
+        <div id="bmi-result" class="result-box">
+          <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+            Enter your weight and height, then click Calculate BMI
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">📊 BMI Categories</h3>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--glass-border);">
+              <th style="padding: 1rem; text-align: left; color: var(--accent-color);">Category</th>
+              <th style="padding: 1rem; text-align: left; color: var(--accent-color);">BMI Range</th>
+              <th style="padding: 1rem; text-align: left; color: var(--accent-color);">Health Risk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 1rem;"><span style="color: #00d9ff;">●</span> Underweight</td>
+              <td style="padding: 1rem;">&lt; 18.5</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Malnutrition risk</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 1rem;"><span style="color: #00ff88;">●</span> Normal Weight</td>
+              <td style="padding: 1rem;">18.5 - 24.9</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Low risk</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 1rem;"><span style="color: #ffaa00;">●</span> Overweight</td>
+              <td style="padding: 1rem;">25 - 29.9</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Moderate risk</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 1rem;"><span style="color: #ff4466;">●</span> Obese (Class I)</td>
+              <td style="padding: 1rem;">30 - 34.9</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">High risk</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 1rem;"><span style="color: #ff4466;">●</span> Obese (Class II)</td>
+              <td style="padding: 1rem;">35 - 39.9</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Very high risk</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem;"><span style="color: #ff4466;">●</span> Obese (Class III)</td>
+              <td style="padding: 1rem;">≥ 40</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Extremely high risk</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">⚠️ Important Disclaimer</h3>
+      <p style="color: var(--text-secondary); line-height: 1.8;">
+        BMI is a useful screening tool but has limitations. It doesn't directly measure body fat or account for:
+      </p>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; margin-top: 1rem;">
+        <li>Muscle mass (athletes may have high BMI but low body fat)</li>
+        <li>Age (elderly may have more body fat at same BMI)</li>
+        <li>Sex (women typically have more body fat than men)</li>
+        <li>Bone density and frame size</li>
+        <li>Ethnicity (different populations have different risk thresholds)</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem;">
+        <strong>Always consult a healthcare professional</strong> for personalized health advice. BMI should be used alongside other assessments.
+      </p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">💡 Healthy Living Tips</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+        <div style="padding: 1rem; background: rgba(0,255,136,0.1); border-radius: 10px; border-left: 3px solid #00ff88;">
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">🥗 Balanced Diet</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Focus on whole foods, vegetables, lean proteins, and healthy fats</p>
+        </div>
+        <div style="padding: 1rem; background: rgba(0,217,255,0.1); border-radius: 10px; border-left: 3px solid #00d9ff;">
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">🏃 Regular Exercise</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Aim for 150 minutes of moderate activity per week</p>
+        </div>
+        <div style="padding: 1rem; background: rgba(255,215,0,0.1); border-radius: 10px; border-left: 3px solid #ffd700;">
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">😴 Quality Sleep</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Get 7-9 hours of quality sleep each night</p>
+        </div>
+        <div style="padding: 1rem; background: rgba(255,170,0,0.1); border-radius: 10px; border-left: 3px solid #ffaa00;">
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">💧 Stay Hydrated</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Drink plenty of water throughout the day</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize unit display
+    document.getElementById('bmi-unit').addEventListener('change', function() {
+      document.getElementById('weight-unit').textContent = this.value === 'metric' ? 'kg' : 'lbs';
+    });
+  </script>
+</body>
+</html>

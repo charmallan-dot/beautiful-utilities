@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter - Beautiful Utils</title>
+  <meta name="description" content="Convert between 150+ currencies with live exchange rates. Free, fast, and accurate currency conversion tool.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="cinematic-bg"></div>
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>💱 Currency Converter</h1>
+      <p>Live exchange rates for 150+ currencies</p>
+    </header>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="glass-card">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" placeholder="Enter amount" value="1" min="0" step="0.01">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: end; margin-bottom: 1.5rem;">
+          <div>
+            <label for="from-currency">From</label>
+            <select id="from-currency">
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          
+          <div style="text-align: center; padding-bottom: 0.5rem;">
+            <span style="font-size: 2rem;">⇄</span>
+          </div>
+          
+          <div>
+            <label for="to-currency">To</label>
+            <select id="to-currency">
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" onclick="CurrencyConverter.convert()" style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">
+          Convert Now
+        </button>
+        
+        <div id="conversion-result" class="result-box">
+          <p style="text-align: center; color: var(--text-secondary);">
+            Enter an amount and click Convert to see the result
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AdSense Placeholder -->
+    <div class="adsense-placeholder">
+      <p>📍 Ad Space (728x90)</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Replace with your Google AdSense code</p>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">🌍 Supported Currencies</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Our converter supports 150+ currencies including:
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+        <div>🇺🇸 USD</div>
+        <div>🇪🇺 EUR</div>
+        <div>🇬🇧 GBP</div>
+        <div>🇯🇵 JPY</div>
+        <div>🇦🇺 AUD</div>
+        <div>🇨🇦 CAD</div>
+        <div>🇨🇭 CHF</div>
+        <div>🇨🇳 CNY</div>
+        <div>🇮🇳 INR</div>
+        <div>🇲🇽 MXN</div>
+        <div>🇧🇷 BRL</div>
+        <div>🇿🇦 ZAR</div>
+        <div>🇸🇬 SGD</div>
+        <div>🇭🇰 HKD</div>
+        <div>🇳🇿 NZD</div>
+        <div>🇰🇷 KRW</div>
+        <div>🇸🇪 SEK</div>
+        <div>🇳🇴 NOK</div>
+        <div>🇩🇰 DKK</div>
+        <div>🇵🇱 PLN</div>
+        <div>🇹🇭 THB</div>
+        <div>🇮🇩 IDR</div>
+        <div>🇲🇾 MYR</div>
+        <div>🇵🇭 PHP</div>
+        <div>🇦🇪 AED</div>
+        <div>🇸🇦 SAR</div>
+        <div>🇮🇱 ILS</div>
+        <div>🇷🇺 RUB</div>
+        <div>🇹🇷 TRY</div>
+        <div>🇦🇷 ARS</div>
+      </div>
+    </div>
+    
+    <div class="glass-card mt-2">
+      <h3 style="margin-bottom: 1rem;">💡 About Exchange Rates</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+        <li>Rates are updated in real-time from reliable financial sources</li>
+        <li>All rates are mid-market rates (no markup or fees)</li>
+        <li>Actual rates from banks may vary slightly</li>
+        <li>Perfect for travel planning, international business, and personal finance</li>
+      </ul>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+    
+    <footer>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        &copy; 2026 Beautiful Utils. All rights reserved.
+      </p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="premium.html">Premium</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
