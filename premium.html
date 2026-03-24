@@ -189,10 +189,10 @@
       </div>
     </div>
     
-    <!-- Payment Modal Placeholder -->
-    <div id="payment-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-      <div class="glass-card" style="max-width: 500px; width: 90%; position: relative;">
-        <button onclick="document.getElementById('payment-modal').classList.add('hidden')" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal-overlay hidden">
+      <div class="modal-content glass-card">
+        <button class="modal-close" onclick="closePaymentModal()">&times;</button>
         <h3 style="text-align: center; margin-bottom: 1.5rem;">🔒 Secure Checkout</h3>
         
         <!-- This is a placeholder - integrate with Stripe, PayPal, or LemonSqueezy -->
@@ -234,12 +234,92 @@
   </div>
   
   <script src="js/main.js"></script>
+  <style>
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.hidden {
+      display: none;
+      opacity: 0;
+    }
+    
+    .modal-content {
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-close:hover {
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
   <script>
     function showPaymentModal(plan = 'monthly') {
-      document.getElementById('payment-modal').classList.remove('hidden');
-      // Here you would integrate with your payment processor
-      // Example: Stripe Checkout, PayPal Buttons, LemonSqueezy, Paddle, etc.
+      const modal = document.getElementById('payment-modal');
+      modal.classList.remove('hidden');
+      modal.style.opacity = '0';
+      setTimeout(() => {
+        modal.style.opacity = '1';
+      }, 10);
     }
+    
+    function closePaymentModal() {
+      const modal = document.getElementById('payment-modal');
+      modal.style.opacity = '0';
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('payment-modal')?.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePaymentModal();
+      }
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('payment-modal');
+        if (!modal?.classList.contains('hidden')) {
+          closePaymentModal();
+        }
+      }
+    });
   </script>
 </body>
 </html>
